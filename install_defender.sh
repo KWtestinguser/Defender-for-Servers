@@ -1,3 +1,4 @@
+#!/bin/bash
 # Bash script to:
 # - Download Microsoft Defender installer and onboarding script from GitHub
 # - Onboard the device
@@ -5,7 +6,6 @@
 # - Remove the installer and onboarding script after successful install
 # - Remove this Bash script itself after successful install
 
-#!/bin/bash
 set -e
 
 # Optional: log output to a file

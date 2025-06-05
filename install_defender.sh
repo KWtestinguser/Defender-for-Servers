@@ -35,3 +35,10 @@ if command -v mdatp >/dev/null 2>&1; then
 else
     echo "❌ Installation failed: mdatp command not found."
 fi
+
+# Remove installer and onboarding files if they exist
+for file in "$INSTALLER" "$ONBOARD"; do
+    if [ -f "$file" ]; then
+        rm -fv "$file"
+    fi
+done

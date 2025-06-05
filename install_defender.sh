@@ -8,9 +8,6 @@
 
 set -e
 
-# Optional: log output to a file
-exec > >(tee install_defender.log) 2>&1
-
 # GitHub repository details
 REPO="KWtestinguser/Defender-for-Servers"
 BRANCH="main"

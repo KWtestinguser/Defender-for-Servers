@@ -35,6 +35,10 @@ if command -v mdatp >/dev/null 2>&1; then
     HEALTH=$(mdatp health --field healthy 2>/dev/null)
     if [[ "$HEALTH" == "true" ]]; then
         echo "✅ Microsoft Defender for Endpoint installed and healthy!"
+
+        #disable passive mode
+        sudo mdatp config passive-mode --value disabled
+        
         # Clean up installer and onboarding script
         rm -fv "$INSTALLER" "$ONBOARD"
         # Delete this script

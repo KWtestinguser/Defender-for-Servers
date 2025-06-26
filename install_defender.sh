@@ -23,7 +23,7 @@ if [[ -f "$INSTALLER" && -f "$ONBOARD" ]]; then
     chmod +x "$INSTALLER"
     sudo ./"$INSTALLER" --install --onboard "./$ONBOARD" --channel prod --min_req
 else
-    echo "❌ One or both required files are missing after download."
+    echo "One or both required files are missing after download."
     exit 1
 fi
 
@@ -34,7 +34,7 @@ sleep 10
 if command -v mdatp >/dev/null 2>&1; then
     HEALTH=$(mdatp health --field healthy 2>/dev/null)
     if [[ "$HEALTH" == "true" ]]; then
-        echo "✅ Microsoft Defender for Endpoint installed and healthy!"
+        echo "Microsoft Defender for Endpoint installed and healthy!"
 
         #disable passive mode
         sudo mdatp config passive-mode --value disabled
@@ -44,9 +44,9 @@ if command -v mdatp >/dev/null 2>&1; then
         # Delete this script
         rm -fv -- "$0"
     else
-        echo "⚠️ Microsoft Defender for Endpoint installed, but health check failed:"
+        echo "Microsoft Defender for Endpoint installed, but health check failed:"
         mdatp health
     fi
 else
-    echo "❌ Installation failed: mdatp command not found."
+    echo "Installation failed: mdatp command not found."
 fi
